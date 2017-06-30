@@ -31,4 +31,14 @@ public class EventTest {
     int shouldEqual = 256;
     assertEquals(shouldEqual, finalOutput);
   }
+
+  @Test
+  public void newEvent_calculatesCouponDiscount() {
+    Event testEvent = new Event("Mariel's Baby Shower", 10, "B", 4, false);
+    int initialCost = testEvent.calculateInitialCost(10, "B", 4);
+    int atFirstShouldEqual = 80;
+    int finalOutput = testEvent.discountForCoupon(atFirstShouldEqual, "JAVA");
+    int shouldEqual = 40;
+    assertEquals(shouldEqual, finalOutput);
+  }
 }
