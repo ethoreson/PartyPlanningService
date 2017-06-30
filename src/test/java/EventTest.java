@@ -41,4 +41,14 @@ public class EventTest {
     int shouldEqual = 40;
     assertEquals(shouldEqual, finalOutput);
   }
+
+  @Test
+  public void newEvent_calculatesMultipleFactors() {
+    Event testEvent = new Event("Hannah's Surprise Birthday", 40, "A", 1, true);
+    int initialCost = testEvent.calculateInitialCost(10, "B", 4);
+    int atFirstShouldEqual = 80;
+    int finalOutput = testEvent.discountForCoupon(atFirstShouldEqual, "JAVA");
+    int shouldEqual = 40;
+    assertEquals(shouldEqual, finalOutput);
+  }
 }
