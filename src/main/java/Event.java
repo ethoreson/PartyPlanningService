@@ -6,10 +6,10 @@ public class Event {
   private String mEventName;
   private int mNumberOfGuests;
   private String mFoodLevel;
-  private ArrayList mBeverages = new ArrayList();
+  private int mBeverages;
   private Boolean mEntertainment;
 
-  public Event(String eventName, int numberofGuests, String foodLevel, String[] beverages, Boolean entertainment) {
+  public Event(String eventName, int numberofGuests, String foodLevel, int beverages, Boolean entertainment) {
     mEventName = eventName;
     mNumberOfGuests = numberofGuests;
     mFoodLevel = foodLevel;
@@ -29,7 +29,7 @@ public class Event {
     return mFoodLevel;
   }
 
-  public ArrayList getBeverages() {
+  public int getBeverages() {
     return mBeverages;
   }
 
@@ -37,8 +37,21 @@ public class Event {
     return mEntertainment;
   }
 
-  public int calculateInitialCost(int numberofGuests, String foodLevel, ArrayList beverages) {
-    int numberOfBeverages = beverages.size();
-    return
+  public int calculateInitialCost(int numberofGuests, String foodLevel, int beverages) {
+    int guests = numberofGuests;
+    int costOfBeverages = (beverages * 10);
+    int foodLevelInt = 0;
+    if (foodLevel == "A") {
+      foodLevelInt += 2;
+    } else if (foodLevel == "B") {
+      foodLevelInt += 4;
+    } else {
+      foodLevelInt += 6;
+    }
+    return (guests * foodLevelInt + costOfBeverages);
+  }
+
+  public int addEntertainment(int initialCost) {
+    return initialCost += 100;
   }
 }
