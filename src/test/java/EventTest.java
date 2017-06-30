@@ -12,4 +12,13 @@ public class EventTest {
     int shouldEqual = 110;
     assertEquals(shouldEqual, totalCost);
   }
+
+  @Test
+  public void newEvent_calculatesAdditionalCostCorrectly() {
+    Event testEvent = new Event("Golden Anniversary", 100, "A", 5, true);
+    int initialCost = testEvent.calculateInitialCost(100, "A", 5);
+    int totalCost = testEvent.addEntertainment(initialCost);
+    int shouldEqual = 350;
+    assertEquals(shouldEqual, totalCost);
+  }
 }
