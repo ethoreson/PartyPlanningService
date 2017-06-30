@@ -67,8 +67,7 @@ public class Event {
   }
 
   public int discountForCoupon(int totalCost, String couponCode) {
-    if (couponCode != "JAVA") {
-    } else {
+    if (couponCode.equals("JAVA")) {
       totalCost -= 40;
     }
     return totalCost;

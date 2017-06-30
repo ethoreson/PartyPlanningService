@@ -20,12 +20,15 @@ public class App {
     if (entertainmentYOrN.equals("yes")) {
       entertainment = true;
     }
+    System.out.println("Enter a coupon code here:");
+    String couponCode = myConsole.readLine();
 
     Event customerEvent = new Event(eventName, numberofGuests, foodLevel, numberofBeverages, entertainment);
     int initialCost = customerEvent.calculateInitialCost(numberofGuests, foodLevel, numberofBeverages, entertainment);
-    // if (entertainment.equals("yes")) {
-    //   customerEvent.addEntertainment(initialCost);
-    // }
-//    customerEvent.discountedBirthdays(eventName, initialCost);
+    System.out.println("Your initial cost was $" + initialCost + ". After coupons...");
+    int couponDiscount = customerEvent.discountForCoupon(initialCost, couponCode);
+    int birthdayDiscount = customerEvent.discountedBirthdays(eventName, couponDiscount);
+
+    System.out.println("Your total will be $" + birthdayDiscount);
   }
 }

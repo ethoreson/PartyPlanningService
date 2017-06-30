@@ -17,8 +17,7 @@ public class EventTest {
   public void newEvent_calculatesBirthdayDiscount() {
     Event testEvent = new Event("Xav's birthday", 50, "C", 2, false);
     int initialCost = testEvent.calculateInitialCost(50, "C", 2, false);
-    int atFirstShouldEqual = 320;
-    int finalOutput = testEvent.discountedBirthdays("Xav's birthday", atFirstShouldEqual);
+    int finalOutput = testEvent.discountedBirthdays("Xav's birthday", initialCost);
     int shouldEqual = 256;
     assertEquals(shouldEqual, finalOutput);
   }
@@ -27,8 +26,7 @@ public class EventTest {
   public void newEvent_calculatesCouponDiscount() {
     Event testEvent = new Event("Mariel's Baby Shower", 10, "B", 4, false);
     int initialCost = testEvent.calculateInitialCost(10, "B", 4, false);
-    int atFirstShouldEqual = 80;
-    int finalOutput = testEvent.discountForCoupon(atFirstShouldEqual, "JAVA");
+    int finalOutput = testEvent.discountForCoupon(initialCost, "JAVA");
     int shouldEqual = 40;
     assertEquals(shouldEqual, finalOutput);
   }
