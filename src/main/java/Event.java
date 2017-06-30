@@ -37,7 +37,8 @@ public class Event {
     return mEntertainment;
   }
 
-  public int calculateInitialCost(int numberofGuests, String foodLevel, int beverages) {
+  public int calculateInitialCost(int numberofGuests, String foodLevel, int beverages, Boolean entertainment) {
+    int finalOutput = 0;
     int guests = numberofGuests;
     int costOfBeverages = (beverages * 10);
     int foodLevelInt = 0;
@@ -48,11 +49,11 @@ public class Event {
     } else {
       foodLevelInt += 6;
     }
-    return (guests * foodLevelInt + costOfBeverages);
-  }
-
-  public int addEntertainment(int initialCost) {
-    return initialCost += 100;
+    finalOutput = (guests * foodLevelInt + costOfBeverages);
+    if (entertainment) {
+      finalOutput += 100;
+    }
+    return finalOutput;
   }
 
   public int discountedBirthdays(String eventName, int totalCost) {

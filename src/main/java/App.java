@@ -13,14 +13,19 @@ public class App {
     String foodLevel = myConsole.readLine();
     System.out.println("How many beverages would you like available? (Carbonated drinks can all be grouped into 1, same for all hard alcohol. If you want beer, wine and sodas, type 3).");
     int numberofBeverages = Integer.parseInt(myConsole.readLine());
+
+    Boolean entertainment = false;
     System.out.println("Would you like live entertainment at this party? DJ Em won't dissapoint! Type yes or no.");
-    String entertainment = myConsole.readLine();
+    String entertainmentYOrN = myConsole.readLine();
+    if (entertainmentYOrN.equals("yes")) {
+      entertainment = true;
+    }
 
     Event customerEvent = new Event(eventName, numberofGuests, foodLevel, numberofBeverages, entertainment);
-    int initialCost = customerEvent.calculateInitialCost(numberofGuests, foodLevel, numberofBeverages);
-    if (entertainment.equals("yes")) {
-      customerEvent.addEntertainment(initialCost);
-    }
-    customerEvent.discountedBirthdays(eventName, initialCost);
+    int initialCost = customerEvent.calculateInitialCost(numberofGuests, foodLevel, numberofBeverages, entertainment);
+    // if (entertainment.equals("yes")) {
+    //   customerEvent.addEntertainment(initialCost);
+    // }
+//    customerEvent.discountedBirthdays(eventName, initialCost);
   }
 }
