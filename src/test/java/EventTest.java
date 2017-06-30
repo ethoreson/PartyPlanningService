@@ -21,4 +21,14 @@ public class EventTest {
     int shouldEqual = 350;
     assertEquals(shouldEqual, totalCost);
   }
+
+  @Test
+  public void newEvent_calculatesBirthdayDiscount() {
+    Event testEvent = new Event("Xav's birthday", 50, "C", 2, false);
+    int initialCost = testEvent.calculateInitialCost(50, "C", 2);
+    int atFirstShouldEqual = 320;
+    int finalOutput = testEvent.discountedBirthdays("Xav's birthday", atFirstShouldEqual);
+    int shouldEqual = 256;
+    assertEquals(shouldEqual, finalOutput);
+  }
 }

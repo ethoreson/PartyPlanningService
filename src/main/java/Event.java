@@ -54,4 +54,22 @@ public class Event {
   public int addEntertainment(int initialCost) {
     return initialCost += 100;
   }
+
+  public int discountedBirthdays(String eventName, int totalCost) {
+    String eventNameLowered = eventName.toLowerCase();
+    int newCost = totalCost;
+    if (eventNameLowered.contains("birthday")) {
+      int reducedPrice = (int)(totalCost*(20.0f/100.0f));
+      newCost = (totalCost - reducedPrice);
+    }
+    return newCost;
+  }
+
+  public int discountForCoupon(int totalCost, String couponCode) {
+    if (couponCode != "JAVA") {
+      return totalCost;
+    } else {
+      totalCost -= 50;
+    }
+  }
 }

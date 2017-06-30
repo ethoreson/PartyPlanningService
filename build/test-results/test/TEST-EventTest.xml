@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EventTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-06-30T19:38:46" hostname="epicodus-2.local" time="0.001">
+<testsuite name="EventTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-06-30T19:54:39" hostname="epicodus-2.local" time="0.001">
   <properties/>
-  <testcase name="newEvent_calculatesCostCorrectly" classname="EventTest" time="0.001"/>
+  <testcase name="newEvent_calculatesBirthdayDiscount" classname="EventTest" time="0.001"/>
+  <testcase name="newEvent_calculatesCostCorrectly" classname="EventTest" time="0.0"/>
   <testcase name="newEvent_calculatesAdditionalCostCorrectly" classname="EventTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
