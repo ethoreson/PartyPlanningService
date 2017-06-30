@@ -13,15 +13,6 @@ public class EventTest {
     assertEquals(shouldEqual, totalCost);
   }
 
-  // @Test
-  // public void newEvent_calculatesAdditionalCostCorrectly() {
-  //   Event testEvent = new Event("Golden Anniversary", 100, "A", 5, true);
-  //   int initialCost = testEvent.calculateInitialCost(100, "A", 5);
-  //   int totalCost = testEvent.addEntertainment(initialCost);
-  //   int shouldEqual = 350;
-  //   assertEquals(shouldEqual, totalCost);
-  // }
-
   @Test
   public void newEvent_calculatesBirthdayDiscount() {
     Event testEvent = new Event("Xav's birthday", 50, "C", 2, false);
@@ -35,7 +26,7 @@ public class EventTest {
   @Test
   public void newEvent_calculatesCouponDiscount() {
     Event testEvent = new Event("Mariel's Baby Shower", 10, "B", 4, false);
-    int initialCost = testEvent.calculateInitialCost(10, "B", 4);
+    int initialCost = testEvent.calculateInitialCost(10, "B", 4, false);
     int atFirstShouldEqual = 80;
     int finalOutput = testEvent.discountForCoupon(atFirstShouldEqual, "JAVA");
     int shouldEqual = 40;
@@ -46,8 +37,8 @@ public class EventTest {
   public void newEvent_calculatesMultipleFactors() {
     Event testEvent = new Event("Hannah's Surprise Birthday", 40, "A", 1, true);
     int initialCost = testEvent.calculateInitialCost(40, "A", 1, true); //190
-    int thenShouldEqual = testEvent.discountForCoupon(atFirstShouldEqual, "JAVA"); //150
-    int finalOutput = testEvent.discountedBirthdays("Hannah's Surprise Birthday", thenShouldEqual) //120
+    int thenShouldEqual = testEvent.discountForCoupon(initialCost, "JAVA"); //150
+    int finalOutput = testEvent.discountedBirthdays("Hannah's Surprise Birthday", thenShouldEqual); //120
     int shouldEqual = 120;
     assertEquals(shouldEqual, finalOutput);
   }
